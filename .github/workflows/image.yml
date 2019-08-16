@@ -12,6 +12,6 @@ jobs:
       - name: env
         run: env
       - name: GitHub login
-        run: echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u "$GITHUB_ACTOR" --password-stdin
+        run: echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u "$GITHUB_REPOSITORY" --password-stdin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
