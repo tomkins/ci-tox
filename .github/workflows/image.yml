@@ -13,6 +13,7 @@ jobs:
         run: env
       - name: GitHub login
         run: |
+          uptime
           env
           docker login docker.pkg.github.com -u "$GITHUB_ACTOR" -p "$GITHUB_TOKEN"
         env:
