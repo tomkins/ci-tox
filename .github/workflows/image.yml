@@ -14,8 +14,11 @@ jobs:
           docker login docker.pkg.github.com -u "$GITHUB_ACTOR" -p "$GITHUB_TOKEN"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch latest Docker image
+        run: |
+          docker pull --quiet docker.pkg.github.com/tomkins/ci-tox/xenial || true
       - name: Build Docker image
         run: |
-          IMAGE_DATE=$(date +%s)
+          IMAGE_DATE=$(date --utc +%Y%m%dT%H%M%SZ)
           docker build --pull --tag docker.pkg.github.com/tomkins/ci-tox/xenial:$IMAGE_DATE .
           docker push docker.pkg.github.com/tomkins/ci-tox/xenial:$IMAGE_DATE
