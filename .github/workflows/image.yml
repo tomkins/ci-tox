@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: env
-        run: env
       - name: GitHub login
         run: |
           uname -a
