@@ -19,8 +19,9 @@ jobs:
         run: |
           IMAGE_DATE=$(date --utc +%Y%m%dT%H%M%SZ)
           docker build --pull \
-            --cache-from docker.pkg.github.com/tomkins/ci-tox/xenial:latest2 \
+            --cache-from docker.pkg.github.com/tomkins/ci-tox/xenial:latest \
             --tag docker.pkg.github.com/tomkins/ci-tox/xenial:$IMAGE_DATE \
             --tag docker.pkg.github.com/tomkins/ci-tox/xenial:latest .
+          docker images -a
           docker push docker.pkg.github.com/tomkins/ci-tox/xenial:$IMAGE_DATE
           docker push docker.pkg.github.com/tomkins/ci-tox/xenial:latest
