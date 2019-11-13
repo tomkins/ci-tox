@@ -12,6 +12,7 @@ jobs:
       - name: GitHub login
         run: |
           docker login docker.pkg.github.com -u "$GITHUB_ACTOR" -p "$GITHUB_TOKEN"
+          uptime
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Fetch latest Docker image
